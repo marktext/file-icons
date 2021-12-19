@@ -1,0 +1,33 @@
+@font-face {
+	font-family: FontAwesome;
+	font-weight: normal;
+	font-style: normal;
+	src: url("./fonts/fontawesome.woff2");
+}
+
+@font-face {
+	font-family: Mfizz;
+	src: url("./fonts/mfixx.woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: Devicons;
+	src: url("./fonts/devopicons.woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+// Package-specific font for custom icon additions
+@custom-font-path: "./fonts/file-icons.woff2";
+
+@font-face {
+	font-family: file-icons;
+	src: url(@custom-font-path);
+	font-weight: normal;
+	font-style: normal;
+}
+@import url('file-icons/styles/colours.less');
+@import url('file-icons/styles/icons.less');

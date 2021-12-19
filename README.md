@@ -1,2 +1,3 @@
 # file-icons
-atom file icons
+file icons used in marktext
+
