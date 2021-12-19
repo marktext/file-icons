@@ -26,8 +26,8 @@ export default {
   input: 'lib/index.js',
   output: [
     {
-      file: packageJson.module,
-      format: 'esm',
+      file: packageJson.main,
+      format: 'cjs',
       sourcemap: false
     }
   ],
