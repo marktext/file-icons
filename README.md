@@ -31,14 +31,14 @@ You can refer more APIs at [atom/icon-tables.js at master · file-icons/atom · 
 yarn dev
 ```
 
-And open browser at `http://127.0.0.1:3000/`
+And open browser at `http://127.0.0.1:3000/` to see the example. the example is at folder `src`.
 
 #### Build and Publish
 
 ```shell
-// Build to the build folder
+# Build to the build folder
 yarn build
-// Publish to npm
+# Publish to npm
 yarn pub
 ```
 
