@@ -9,8 +9,9 @@
   ],
   "scripts": {
     "build": "rollup -c --environment BUILD:production",
-    "watch": "rollup -c -w",
-    "dev": "npm-run-all --parallel start watch",
+    "dev:sdk": "rollup -c -w",
+    "dev:example": "rollup -c rollup.config.example.js -w",
+    "dev": "npm-run-all --parallel start dev:sdk dev:example",
     "start": "serve ./",
     "pub": "npm publish"
   },

@@ -20,15 +20,14 @@ const options = {
 
 const isProduction = process.env.BUILD === 'production'
 
-console.log(isProduction)
-
 export default {
   input: 'lib/index.js',
   output: [
     {
       file: packageJson.main,
       format: 'cjs',
-      sourcemap: false
+      sourcemap: false,
+      exports: 'default',
     }
   ],
 

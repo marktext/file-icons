@@ -1,0 +1,21 @@
+h4 {
+  margin: 20px auto;
+  text-align: center;
+  color: rgba(25, 25, 25, .6);
+}
+
+#app {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item .icon {
+  width: 50px;
+  height: 50px;
+}
