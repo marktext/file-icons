@@ -2,7 +2,7 @@
 
 file icons used in MarkText and inspired by file-icons/atom.
 
-![](/Users/ransixi/Documents/file-icons/assets/0429e810f5bcbd89261bc697397295c9159354f0.png)
+![](https://github.com/marktext/file-icons/blob/main/preview.png)
 
 #### Install
 
