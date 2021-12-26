@@ -1,6 +1,6 @@
 # File Icons
 
-file icons used in **MarkText** and inspired by [file-icons/atom](https://github.com/file-icons/atom/tree/master).
+File icons used in **MarkText** and inspired by [file-icons/atom](https://github.com/file-icons/atom/tree/master).
 
 ![](https://github.com/marktext/file-icons/blob/main/preview.png)
 
@@ -36,6 +36,7 @@ And open browser at `http://127.0.0.1:3000/` to see the example. the example is 
 #### Build and Publish
 
 ```shell
+# Change the version in package.json
 # Build to the build folder
 yarn build
 # Publish to npm
