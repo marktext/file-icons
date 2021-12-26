@@ -1,10 +1,10 @@
 # File Icons
 
-file icons used in MarkText and inspired by file-icons/atom.
+file icons used in **MarkText** and inspired by [file-icons/atom](https://github.com/file-icons/atom/tree/master).
 
 ![](https://github.com/marktext/file-icons/blob/main/preview.png)
 
-#### Install
+#### Installation
 
 ```shell
 yarn add @marktext/file-icons
