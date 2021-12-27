@@ -8,7 +8,8 @@ import packageJson from './package.json'
 import path from 'path'
 
 // postcss-url options
-const options = {
+const options = [{
+  filter: /fontawesome|mfixx|devopicons|file-icons/,
   url: 'copy',
   // base path to search assets from
   basePath: path.resolve(__dirname, 'node_modules/file-icons'),
@@ -16,7 +17,16 @@ const options = {
   assetsPath: path.resolve(__dirname, 'build/'),
   // using hash names for assets (generates from asset content)
   useHash: false
-}
+}, {
+  filter: /octicons/,
+  url: 'copy',
+  // base path to search assets from
+  basePath: path.resolve(__dirname, 'lib/'),
+  // dir to copy assets
+  assetsPath: path.resolve(__dirname, 'build/'),
+  // using hash names for assets (generates from asset content)
+  useHash: false
+}]
 
 const isProduction = process.env.BUILD === 'production'
 

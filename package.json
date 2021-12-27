@@ -1,6 +1,6 @@
 {
   "name": "@marktext/file-icons",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "atom file icons",
   "main": "./build/index.js",
   "module": "./build/index.js",
