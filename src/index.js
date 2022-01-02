@@ -4,7 +4,9 @@ import './index.css'
 
 const PRISM_LANGS_URL = 'https://raw.githubusercontent.com/PrismJS/prism/master/components.json'
 const FILE_EXTIONS = [
-  'txt'
+  'txt',
+  'pdf',
+
 ]
 
 const getPrismSupportedLanguages = () => {
@@ -51,7 +53,7 @@ const main = () => {
         const iconClass = fileIcons.matchName(`MOCK.${ext}`)
         console.log(iconClass.getClass())
         if (iconClass) {
-          icon.classList.add(iconClass.icon === 'icon-file-text' ? 'text-icon' : iconClass.icon)
+          icon.classList.add(iconClass.icon)
           if (Array.isArray(iconClass.colour) && iconClass.colour.length) {
             icon.classList.add(iconClass.colour[0])
           }
