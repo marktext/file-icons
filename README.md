@@ -44,5 +44,11 @@ yarn pub
 ```
 
 #### License
+import fileIcons from '@marktext/file-icons'
+import '@marktext/file-icons/build/index.css'
 
-MIT.
+const icon = fileIcons.matchLanguage('javascript')
+// iconEle.classList.add(icon.icon)
+// icon with color
+// iconEle.classList.add(icon.colour[0])
+// iconEle.classList.add(icon.colour[1])
