@@ -8,13 +8,15 @@
     "build"
   ],
   "scripts": {
-    "build": "rollup -c --environment BUILD:production",
-    "test": "npm run build && node test/build.cjs",
-    "dev:sdk": "rollup -c -w",
-    "dev:example": "rollup -c rollup.config.example.js -w",
-    "dev": "npm-run-all --parallel start dev:sdk dev:example",
-    "start": "serve ./",
-    "pub": "npm publish"
+    "dev": "vite",
+    "typecheck": "tsc --noEmit",
+    "build": "vite build && tsc -p tsconfig.build.json && node scripts/finalize-types.mjs",
+    "build:example": "vite build --mode example",
+    "preview": "vite preview --mode example",
+    "test": "pnpm run typecheck && pnpm run build && node test/build.cjs && tsc -p test/tsconfig.json",
+    "test:package": "node test/package.mjs",
+    "prepack": "pnpm run typecheck && pnpm run build",
+    "pub": "pnpm publish"
   },
   "repository": {
     "type": "git",
@@ -24,9 +26,6 @@
     "file",
     "icons"
   ],
-  "dependencies": {
-    "file-icons": "https://codeload.github.com/file-icons/atom/tar.gz/248da1c65beeaad5e8922d66d1d977742260bab2"
-  },
   "author": "Jocs",
   "license": "MIT",
   "bugs": {
@@ -34,22 +33,26 @@
   },
   "homepage": "https://github.com/marktext/file-icons#readme",
   "devDependencies": {
-    "@babel/core": "^7.16.5",
-    "@babel/preset-env": "^7.16.5",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^21.0.1",
-    "@rollup/plugin-node-resolve": "^13.1.1",
-    "@rollup/plugin-terser": "^1.0.2",
-    "@rollup/plugin-url": "^6.1.0",
-    "less": "^4.1.2",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.5",
-    "postcss-url": "^10.1.3",
-    "rollup": "^2.36.2",
-    "rollup-plugin-postcss": "^4.0.2",
-    "serve": "^13.0.2"
+    "@types/node": "^22.0.0",
+    "file-icons": "https://codeload.github.com/file-icons/atom/tar.gz/248da1c65beeaad5e8922d66d1d977742260bab2",
+    "less": "^4.6.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
   },
-  "directories": {
-    "lib": "lib"
-  }
+  "types": "./build/index.d.cts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./build/index.d.mts",
+        "default": "./build/index.mjs"
+      },
+      "require": {
+        "types": "./build/index.d.cts",
+        "default": "./build/index.js"
+      }
+    },
+    "./build/*": "./build/*",
+    "./package.json": "./package.json"
+  },
+  "packageManager": "pnpm@12.18.0"
 }

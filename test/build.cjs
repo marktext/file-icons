@@ -3,6 +3,7 @@ const fs = require('node:fs')
 const path = require('node:path')
 const { pathToFileURL } = require('node:url')
 const packageJson = require('../package.json')
+const upstream = require('file-icons/lib/icons/icon-tables')
 
 const root = path.resolve(__dirname, '..')
 const files = [
@@ -50,6 +51,19 @@ async function main () {
     }
     assert.equal(icons.matchName('unknown.file-icons-test-extension'), null)
     assert.equal(icons.matchLanguage('unknown-file-icons-test-language'), null)
+    for (const [method, args] of [
+      ['matchName', ['node_modules', true]],
+      ['matchPath', ['/project/.git/config']],
+      ['matchScope', ['source.js']],
+      ['matchInterpreter', ['bash']],
+      ['matchSignature', ['%PDF-1.7']],
+      ['matchSignature', ['\0binary']]
+    ]) {
+      const expected = upstream[method](...args)
+      assert.ok(expected, `Upstream fixture matches ${method}`)
+      const actual = icons[method](...args)
+      assert.equal(actual?.getClass(0), expected.getClass(0), `${method} matches upstream`)
+    }
   }
 
   const fontUrls = [...css.matchAll(/url\(["']?([^\)"']+)["']?\)/g)].map(match => match[1])
