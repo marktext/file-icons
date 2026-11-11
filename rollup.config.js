@@ -3,7 +3,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import postcssUrl from 'postcss-url'
 import postcss from 'rollup-plugin-postcss'
-import pluginTerser from 'rollup-plugin-terser'
+import terser from '@rollup/plugin-terser'
 import packageJson from './package.json'
 import path from 'path'
 
@@ -38,6 +38,11 @@ export default {
       format: 'cjs',
       sourcemap: false,
       exports: 'default',
+    },
+    {
+      file: packageJson.module,
+      format: 'es',
+      sourcemap: false,
     }
   ],
 
@@ -49,11 +54,11 @@ export default {
       use: {
         less: { javascriptEnabled: true }
       },
-      extract: true
+      extract: path.resolve(__dirname, 'build/index.css')
     }),
     commonjs(),
     babel({ babelHelpers: 'bundled' }),
     nodeResolve(),
-    isProduction && pluginTerser.terser()
+    isProduction && terser()
   ],
 }

@@ -3,12 +3,13 @@
   "version": "1.0.6",
   "description": "atom file icons",
   "main": "./build/index.js",
-  "module": "./build/index.js",
+  "module": "./build/index.mjs",
   "files": [
     "build"
   ],
   "scripts": {
     "build": "rollup -c --environment BUILD:production",
+    "test": "npm run build && node test/build.cjs",
     "dev:sdk": "rollup -c -w",
     "dev:example": "rollup -c rollup.config.example.js -w",
     "dev": "npm-run-all --parallel start dev:sdk dev:example",
@@ -24,7 +25,7 @@
     "icons"
   ],
   "dependencies": {
-    "file-icons": "github:file-icons/atom"
+    "file-icons": "https://codeload.github.com/file-icons/atom/tar.gz/248da1c65beeaad5e8922d66d1d977742260bab2"
   },
   "author": "Jocs",
   "license": "MIT",
@@ -38,6 +39,7 @@
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.1.1",
+    "@rollup/plugin-terser": "^1.0.2",
     "@rollup/plugin-url": "^6.1.0",
     "less": "^4.1.2",
     "npm-run-all": "^4.1.5",
@@ -45,7 +47,6 @@
     "postcss-url": "^10.1.3",
     "rollup": "^2.36.2",
     "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-terser": "^7.0.2",
     "serve": "^13.0.2"
   },
   "directories": {
